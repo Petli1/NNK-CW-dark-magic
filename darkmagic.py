@@ -23,8 +23,8 @@ for i in tqdm(range(runs)):
     lvl = setruns(attempts)
     maxlevels.append(lvl)
     
-plt.hist(maxlevels, bins=range(20,150,2))
+plt.hist(maxlevels, bins=range(20,max(maxlevels)))
 plt.title("average level reached after attempting to upgrade "+str(attempts)+"times")
-plt.xtitle('frequency of level acheived')
-plt.ytitle('maximum level achieved')
+plt.ylabel('frequency of level acheived')
+plt.xlabel('maximum level achieved')
 plt.show()
