@@ -18,7 +18,7 @@ def reachruns(limit):
 
 
 maxlevel = 35
-runs = 1000000
+runs = 100000
 
 upgradecount=[]
 for i in tqdm(range(runs)):
@@ -30,7 +30,7 @@ x = series * series.keys() / runs
 average = sum(x)
 stddev = np.sqrt(sum(series*(series.keys() - average)**2/runs))
 
-plt.hist(upgradecount, bins=range(0,1000))
+plt.hist(upgradecount, bins=range(0,int(average + 5*stddev)))
 plt.title("average number of attempts to reach level "+str(maxlevel)+" = " + str(average) + "with a standard deviation of " + str(stddev))
 plt.xtitle('frequency of attempts taken')
 plt.ytitle('attempts to reach level '+ str(maxlevel))

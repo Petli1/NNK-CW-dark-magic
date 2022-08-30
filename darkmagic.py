@@ -15,10 +15,16 @@ def setruns(limit):
         i+=1
     return lvl
 
+runs = 10000
+attempts = 100
+
 maxlevels =[]
-for i in tqdm(range(100000)):
-    lvl = setruns(1000)
+for i in tqdm(range(runs)):
+    lvl = setruns(attempts)
     maxlevels.append(lvl)
     
 plt.hist(maxlevels, bins=range(20,150,2))
+plt.title("average level reached after attempting to upgrade "+str(attempts)+"times")
+plt.xtitle('frequency of level acheived')
+plt.ytitle('maximum level achieved')
 plt.show()
